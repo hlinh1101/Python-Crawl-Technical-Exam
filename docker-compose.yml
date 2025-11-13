@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    container_name: books_api_web
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app
+      - ./html_backup:/app/html_backup
+    # environment:
+    #   # API_KEY: "hlink"
+    restart: unless-stopped
+
+  scraper:
+    build: .
+    container_name: books_scraper
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - ./html_backup:/app/html_backup
+    command: ["sh", "-c", "python part1.py && python part2.py"]
+
+
+  tests:
+    build: .
+    container_name: books_tests
+    volumes:
+      - ./:/app
+    working_dir: /app
+    entrypoint: ["sh", "-c"]
+    command: "pytest -q"

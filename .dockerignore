@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+venv/
+html_backup/
+books.csv
+books.json
+books_with_country.csv
+books_with_country.json
+countries_cache.json
+.git
+.gitignore
+.DS_Store
