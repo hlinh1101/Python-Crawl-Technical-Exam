@@ -4,7 +4,7 @@ from pydantic import BaseModel
 import json
 import os
 
-BOOKS_FILE = "books_with_country.json"
+BOOKS_FILE = "data/books_with_country.json"
 API_KEY = "hlink"
 
 # ==== Pydantic models ====

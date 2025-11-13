@@ -9,12 +9,12 @@ import json
 import requests
 from bs4 import BeautifulSoup
 
-from models import Book
+from app.models import Book
 
 BASE_URL = "https://books.toscrape.com/"
-HTML_BACKUP_DIR = "html_backup"
-OUTPUT_CSV = "books.csv"
-OUTPUT_JSON = "books.json"
+HTML_BACKUP_DIR = "data/html_backup"
+OUTPUT_CSV = "data/books.csv"
+OUTPUT_JSON = "data/books.json"
 HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "

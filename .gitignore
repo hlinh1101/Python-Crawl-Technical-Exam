@@ -9,21 +9,26 @@ __pycache__/
 dist/
 build/
 
-# Virtual environments
 venv/
 .venv/
 env/
 ENV/
 pip-wheel-metadata/
 
-# PyTest cache
 .pytest_cache/
 .cache/
 
-# Jupyter / notebooks
-.ipynb_checkpoints/
+*.log
+docker-compose.override.yml
+
 
 .vscode/
 
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
 
-!.gitignore
+.env
+.env.*

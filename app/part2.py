@@ -8,14 +8,14 @@ import json
 import requests
 import random
 
-from models import Book
+from app.models import Book
 
-INPUT_JSON = "books.json"
-OUTPUT_JSON = "books_with_country.json"
-OUTPUT_CSV  = "books_with_country.csv"
+INPUT_JSON = "data/books.json"
+OUTPUT_JSON = "data/books_with_country.json"
+OUTPUT_CSV  = "data/books_with_country.csv"
 
 RESTCOUNTRIES_URL = "https://restcountries.com/v3.1/all"
-COUNTRIES_CACHE_FILE = "countries_cache.json"
+COUNTRIES_CACHE_FILE = "data/countries_cache.json"
 COUNTRIES_CACHE_TTL = 24 * 3600 
 
 
@@ -111,8 +111,8 @@ def main():
     countries = fetch_countries_cached()
     assign_random_countries(books, countries)
 
-    save_to_csv(books, "books_with_country.csv")
-    save_to_json(books, "books_with_country.json")
+    save_to_csv(books, OUTPUT_CSV)
+    save_to_json(books, OUTPUT_JSON)
 
 
 if __name__ == "__main__":

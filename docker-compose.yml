@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   web:
     build: .
@@ -8,9 +6,7 @@ services:
       - "8000:8000"
     volumes:
       - ./:/app
-      - ./html_backup:/app/html_backup
-    # environment:
-    #   # API_KEY: "hlink"
+      - ./data:/app/data
     restart: unless-stopped
 
   scraper:
@@ -19,15 +15,13 @@ services:
     working_dir: /app
     volumes:
       - ./:/app
-      - ./html_backup:/app/html_backup
-    command: ["sh", "-c", "python part1.py && python part2.py"]
-
+      - ./data:/app/data
+    command: ["sh", "-c", "python -m app.part1 && python -m app.part2"]
 
   tests:
     build: .
     container_name: books_tests
+    working_dir: /app
     volumes:
       - ./:/app
-    working_dir: /app
-    entrypoint: ["sh", "-c"]
-    command: "pytest -q"
+    command: ["sh", "-c", "pytest -q"]
